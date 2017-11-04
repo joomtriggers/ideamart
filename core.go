@@ -8,8 +8,7 @@ import (
 	"encoding/json"
 )
 
-
-func SendRequest(jsonResponse interface{}) {
+func SendRequest(jsonResponse interface{},configuration interface{}) {
 	b := new(bytes.Buffer)
 	json.NewEncoder(b).Encode(jsonResponse)
 	w, _ := http.NewRequest("POST", "https://httpbin.org/post", b);

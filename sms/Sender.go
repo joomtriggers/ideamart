@@ -8,7 +8,8 @@ type SenderInterface interface {
 }
 
 type Sender struct {
-	request *SendRequest
+	request       *SendRequest
+	configuration *Configuration
 }
 
 func SMS() (*Sender, *SendRequest) {
@@ -17,8 +18,12 @@ func SMS() (*Sender, *SendRequest) {
 	sender.request = &request;
 	return sender, sender.request;
 }
+func (sender *Sender) LoadConfiguration(c *Configuration) *Sender {
+	sender.configuration = c;
+	return sender;
+}
 
 func (sender *Sender) Send() *SendResponse {
-	ideago.SendRequest(sender.request);
+	ideago.SendRequest(sender.request, sender.configuration);
 	return &SendResponse{};
 }
