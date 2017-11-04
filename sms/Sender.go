@@ -1,28 +1,24 @@
-<?php
+package sms;
 
-namespace Joomtriggers\Ideamart\SMS;
+import "github.com/joomtriggers/ideamart"
 
-use Joomtriggers\Ideamart\Contracts\AddressBrokerInterface;
-use Joomtriggers\Ideamart\Contracts\ConfigurationInterface;
-use Joomtriggers\Ideamart\Contracts\MessageBrokerInterface;
-use Joomtriggers\Ideamart\Contracts\SenderInterface;
-use Joomtriggers\Ideamart\Core;
+type SenderInterface interface {
+	Send() *SendResponse
+	SMS() (*Sender,*SendRequest)
+}
 
-class Sender implements SenderInterface
-{
-    use Core;
-    protected $response = [];
+type Sender struct {
+	request *SendRequest
+}
 
-    public function send(
-        MessageBrokerInterface $messageBrokerInterface,
-        AddressBrokerInterface $addressBrokerInterface,
-        ConfigurationInterface $configurationInterface)
-    {
-        //"message":"Hello" "destinationAddresses":["tel:94777123456"], "password":"password", "applicationId":"APP_999999"
-        $this->response['message'] = $messageBrokerInterface->getMessage();
-        $this->response['destinationAddresses'] = $addressBrokerInterface->getSubscribers();
-        $this->response['password'] = $configurationInterface->getSecret();
-        $this->response['applicationId'] = $configurationInterface->getApplication();
-        return $this->sendRequest(json_encode($this->response), $configurationInterface->getServer());
-    }
+func SMS() (*Sender,*SendRequest) {
+	sender := &Sender{};
+	request := SendRequest{};
+	sender.request = &request;
+	return sender,sender.request;
+}
+
+func (sender *Sender) Send() *SendResponse {
+	ideamart.SendRequest(sender.request);
+	return &SendResponse{};
 }

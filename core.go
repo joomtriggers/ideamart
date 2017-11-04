@@ -1,4 +1,4 @@
-package core;
+package ideamart;
 
 import (
 	"bytes"
@@ -8,11 +8,8 @@ import (
 	"encoding/json"
 )
 
-type Request struct {
-	Name string
-}
 
-func sendRequest(jsonResponse Request, url string) {
+func SendRequest(jsonResponse interface{}) {
 	b := new(bytes.Buffer)
 	json.NewEncoder(b).Encode(jsonResponse)
 	w, _ := http.NewRequest("POST", "https://httpbin.org/post", b);
@@ -20,11 +17,4 @@ func sendRequest(jsonResponse Request, url string) {
 	client := &http.Client{};
 	res, _ := client.Do(w);
 	io.Copy(os.Stdout, res.Body)
-	//io.Copy(os.Stdout, p)
-
-}
-
-func main() {
-	ab := Request{Name: "TEsting"};
-	sendRequest(ab, "https://localhost:8080/");
 }
