@@ -1,4 +1,4 @@
-package ideamart;
+package ideago;
 
 import (
 	"bytes"

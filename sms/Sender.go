@@ -1,24 +1,24 @@
 package sms;
 
-import "github.com/joomtriggers/ideamart"
+import "github.com/joomtriggers/ideago"
 
 type SenderInterface interface {
 	Send() *SendResponse
-	SMS() (*Sender,*SendRequest)
+	SMS() (*Sender, *SendRequest)
 }
 
 type Sender struct {
 	request *SendRequest
 }
 
-func SMS() (*Sender,*SendRequest) {
+func SMS() (*Sender, *SendRequest) {
 	sender := &Sender{};
 	request := SendRequest{};
 	sender.request = &request;
-	return sender,sender.request;
+	return sender, sender.request;
 }
 
 func (sender *Sender) Send() *SendResponse {
-	ideamart.SendRequest(sender.request);
+	ideago.SendRequest(sender.request);
 	return &SendResponse{};
 }
