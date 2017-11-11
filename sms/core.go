@@ -10,7 +10,7 @@ import (
 
 func SendSMSRequest(sender *Sender) SendResponse{
 	b := new(bytes.Buffer)
-	json.NewEncoder(b).Encode(jsonResponse)
+	json.NewEncoder(b).Encode(sender.SendRequest)
 	w, _ := http.NewRequest("POST",sender.Server, b);
 	w.Header.Add("content-type", "application/json");
 	client := &http.Client{};

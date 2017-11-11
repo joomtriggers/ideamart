@@ -1,8 +1,8 @@
 package ideago;
 
-import "github.com/joomtriggers/ideago/sms"
+//import "github.com/joomtriggers/ideago/sms"
 
-func SMS() *sms.Sender {
-	return &sms.Sender{};
-}
 
+// 
+// config = sms.NewConfiguration().SetPassword().SetServer().SetApplication()
+// sms.NewMessage("Message").SendMessage(config);
