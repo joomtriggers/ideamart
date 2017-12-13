@@ -6,15 +6,15 @@
 package main
 
 import (
-	"github.com/joomtriggers/ideago"
+	ideamart "github.com/joomtriggers/ideago"
 )
 
 func main() {
 
-	smss := ideago.SMS();
-	defer smss.Send();
-	smss.SetApplication("APP_000001").SetPassword("password").SetServer("http://127.0.0.1:7000/sms/send")
-	smss.SetMessage("Message").AddReceiver("tel:94771231232");
+	sms := ideamart.SMS();
+	defer sms.Send();
+	sms.SetApplication("APP_000001").SetPassword("password").SetServer("http://127.0.0.1:7000/sms/send")
+	sms.SetMessage("Message").AddReceiver("tel:94771231232");
 }
 
 
