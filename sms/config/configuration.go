@@ -1,4 +1,4 @@
-package sms
+package config
 
 type ConfigurationInterface interface {
 	SetServer(string)
