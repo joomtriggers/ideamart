@@ -24,5 +24,3 @@ type SendResponse struct {
 	MessageId    string `json:messageId`
 	Version      string `json:version`
 }
-
-

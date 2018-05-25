@@ -15,16 +15,16 @@ type Configuration struct {
 }
 
 func (c *Configuration) SetServer(server string) *Configuration {
-	c.Server = server;
+	c.Server = server
 	return c
 }
 func (c *Configuration) SetApplication(appId string) *Configuration {
-	c.ApplicationId = appId;
+	c.ApplicationId = appId
 	return c
 }
 func (c *Configuration) SetPassword(password string) *Configuration {
-	c.Password = password;
-	return c;
+	c.Password = password
+	return c
 }
 func (c *Configuration) GetServer() string {
 	return c.Server

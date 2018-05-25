@@ -6,7 +6,7 @@
 package main
 
 import (
-	ideamart "github.com/joomtriggers/ideago"
+	ideamart "github.com/joomtriggers/ideamart"
 )
 
 func main() {

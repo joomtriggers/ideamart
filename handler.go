@@ -1,6 +1,6 @@
-package ideago;
+package ideamart
 
-import "github.com/joomtriggers/ideago/sms"
+import "github.com/joomtriggers/ideamart/sms"
 
 //  wh
 
@@ -9,8 +9,8 @@ import "github.com/joomtriggers/ideago/sms"
 
 //proper code to handle a SMS call should be done
 
-func SMS() (*sms.Sender) {
-	sender := &sms.Sender{};
+func SMS() *sms.Sender {
+	sender := &sms.Sender{}
 
 	return sender
 }

@@ -1,8 +1,8 @@
-package sms;
+package sms
 
 import (
-	"github.com/joomtriggers/ideago/sms/request"
-	"github.com/joomtriggers/ideago/sms/config"
+	"github.com/joomtriggers/ideamart/sms/config"
+	"github.com/joomtriggers/ideamart/sms/request"
 )
 
 type SenderInterface interface {
@@ -17,8 +17,9 @@ type Sender struct {
 }
 
 func (sender *Sender) Send() SendResponse {
-	sender.SendRequest.Configure(&sender.Configuration);
-	return SendSMSRequest(sender);
+	sender.SetApplicationId(sender.GetApplication())
+	sender.SendRequest.Configure(&sender.Configuration)
+	return SendSMSRequest(sender)
 }
 
 func (sender *Sender) Configure(c *config.Configuration) *Sender {
