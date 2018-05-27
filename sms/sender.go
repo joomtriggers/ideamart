@@ -18,7 +18,6 @@ type Sender struct {
 
 func (sender *Sender) Send() SendResponse {
 	sender.SetApplicationId(sender.GetApplication())
-	sender.SendRequest.Configure(&sender.Configuration)
 	return sendRequest(sender)
 }
 

@@ -1,27 +1,25 @@
 package request
 
-import "github.com/joomtriggers/ideamart/config"
-
 type SendRequest struct {
 	Request
 	DestinationAddresses []string `json:"destinationAddresses"`
 	SourceAddress        string   `json:"sourceAddress"`
 	Password             string   `json:"password"`
-	//DeliveryStatusRequest bool     `json:"deliveryStatusRequest"`
-	//ChargingAmount        string   `json:"chargingAmount"`
-	//BinaryHeader          string   `json:"binaryHeader"`
+	// DeliveryStatusRequest bool     `json:"deliveryStatusRequest"`
+	// ChargingAmount        string   `json:"chargingAmount"`
+	// BinaryHeader          string   `json:"binaryHeader"`
 }
 
 type SendRequestInterface interface {
 	SetMessage(string) SendRequestInterface
 	GetMessage() string
 	AddReceiver(string) SendRequestInterface
-	//AddReceivers([]string) SendRequestInterface
-	//setPassword(string) SendRequestInterface
+	// AddReceivers([]string) SendRequestInterface
+	// setPassword(string) SendRequestInterface
 	setApplication(string) SendRequestInterface
 	setSourceAddress(string) SendRequestInterface
-	//setVersion(string) SendRequestInterface
-	//Send()
+	// setVersion(string) SendRequestInterface
+	// Send()
 }
 
 func (request *SendRequest) AddReceiver(receiver string) *SendRequest {
@@ -36,4 +34,3 @@ func (request *SendRequest) SetApplicationId(appId string) *SendRequest {
 	request.ApplicationId = appId
 	return request
 }
-
