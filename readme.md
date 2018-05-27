@@ -14,11 +14,11 @@ func main() {
 
 	simple := ideamart.SMS()
 	defer simple.Send()
-	simple.SetApplication("APP_000001").SetServer("http://127.0.0.1:7000/sms/send")
+	simple.SetApplication("APP_000001")
+	simple.SetServer("http://127.0.0.1:7000/sms/send")
 	simple.SetPassword("password")
-	simple.Sender.SetMessage("Message")
-	simple.Sender.AddReceiver("tel:94771231232")
-
+	simple.SetMessage("Message")
+	simple.AddReceiver("tel:94771231232")
 }
 
 
