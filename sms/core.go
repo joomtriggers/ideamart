@@ -18,5 +18,5 @@ func sendRequest(sender *Sender) SendResponse {
 	client := &http.Client{}
 	res, _ := client.Do(w)
 	io.Copy(os.Stdout, res.Body)
-	return sender.SendResponse
+	return *sender.SendResponse
 }

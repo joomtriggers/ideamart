@@ -18,12 +18,12 @@ type Sender struct {
 
 func (sender *Sender) Send() SendResponse {
 	sender.SetApplicationId(sender.GetApplication())
-	sender.SendRequest.Configure(&sender.Configuration)
+	sender.SendRequest.Configure(sender.Configuration)
 	return sendRequest(sender)
 }
 
 
 func (sender *Sender) Configure(c *config.Configuration) *Sender {
-	sender.Configuration = *c
+	sender.Configuration = c
 	return sender
 }
