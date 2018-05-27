@@ -7,7 +7,7 @@ type Request struct {
 	//Version       string `json:"version"`
 }
 
-func (request *Request) SetMessage(message string) {
+func (request *Request) SetMessage(message string) (request *Request) {
 	request.Message = message
 }
 func (request *Request) GetMessage() string {
