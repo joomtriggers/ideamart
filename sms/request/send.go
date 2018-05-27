@@ -1,6 +1,6 @@
 package request
 
-import "github.com/joomtriggers/ideamart/sms/config"
+import "github.com/joomtriggers/ideamart/config"
 
 type SendRequest struct {
 	Request

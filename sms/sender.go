@@ -1,7 +1,7 @@
 package sms
 
 import (
-	"github.com/joomtriggers/ideamart/sms/config"
+	"github.com/joomtriggers/ideamart/config"
 	"github.com/joomtriggers/ideamart/sms/request"
 )
 
@@ -19,8 +19,9 @@ type Sender struct {
 func (sender *Sender) Send() SendResponse {
 	sender.SetApplicationId(sender.GetApplication())
 	sender.SendRequest.Configure(&sender.Configuration)
-	return SendSMSRequest(sender)
+	return sendRequest(sender)
 }
+
 
 func (sender *Sender) Configure(c *config.Configuration) *Sender {
 	sender.Configuration = *c
