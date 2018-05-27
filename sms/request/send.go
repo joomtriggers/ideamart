@@ -1,5 +1,7 @@
 package request
 
+import "github.com/joomtriggers/ideamart/config"
+
 type SendRequest struct {
 	Request
 	DestinationAddresses []string `json:"destinationAddresses"`
@@ -32,5 +34,10 @@ func (request *SendRequest) SetSourceAddress(sourceAddress string) *SendRequest 
 }
 func (request *SendRequest) SetApplicationId(appId string) *SendRequest {
 	request.ApplicationId = appId
+	return request
+}
+func (request *SendRequest) Configure(c *config.Configuration) *SendRequest {
+	request.Password = c.Password
+	request.ApplicationId = c.ApplicationId
 	return request
 }

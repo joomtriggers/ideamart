@@ -11,14 +11,19 @@ type SenderInterface interface {
 }
 
 type Sender struct {
-	request.SendRequest
-	SendResponse
-	config.Configuration
+	*request.SendRequest
+	*SendResponse
+	*config.Configuration
 }
 
 func (sender *Sender) Send() SendResponse {
 	sender.SetApplicationId(sender.GetApplication())
+	sender.SendRequest.Configure(&sender.Configuration)
 	return sendRequest(sender)
 }
 
 
+func (sender *Sender) Configure(c *config.Configuration) *Sender {
+	sender.Configuration = *c
+	return sender
+}

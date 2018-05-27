@@ -14,7 +14,7 @@ type Configuration struct {
 	ApplicationId string `json:"applicationId"`
 }
 
-func (c *Configuration) Configure(configuration map[string]string){
+func (c *Configuration) ConfigureMap(configuration map[string]string){
 	c.Server = configuration["server"]
 	c.Password = configuration["password"]
 	c.ApplicationId = configuration["applicationId"]
