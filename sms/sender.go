@@ -23,7 +23,3 @@ func (sender *Sender) Send() SendResponse {
 }
 
 
-func (sender *Sender) Configure(c *config.Configuration) *Sender {
-	sender.Configuration = *c
-	return sender
-}

@@ -37,8 +37,3 @@ func (request *SendRequest) SetApplicationId(appId string) *SendRequest {
 	return request
 }
 
-func (request *SendRequest) Configure(c *config.Configuration) *SendRequest {
-	request.Password = (c.Password)
-	request.ApplicationId = c.ApplicationId
-	return request
-}
